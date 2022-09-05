@@ -12,4 +12,8 @@ Al enviar verificamos que los campos fueron cargados, se muestra un alert con me
 
 npm i react-bootstrap bootstrap
 
+## Sweetalert 2
+
+npm install --save sweetalert2 sweetalert2-react-content
+
 ### Carlos Escobar
