@@ -2,9 +2,9 @@ import React from 'react';
 
 const Titulo = () => {
     return (
-        <div>
+        <h1 className='container-fluid py-3 text-light bg-secondary text-center'>
             Formulario
-        </div>
+        </h1>
     );
 };
 
