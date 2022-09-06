@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Form,Button,Alert} from 'react-bootstrap';
-//import { cantidadCaracteres, validarCategoria, validarPrecio, validarUrl } from "./helpers";
+import { cantidadCaracteres, validarDni, validarEmail } from "./helpers";
 import Swal from "sweetalert2";
 
 const Formulario = () => {
@@ -36,8 +36,7 @@ const Formulario = () => {
         e.preventDefault();
 
         //validar
-        //if (cantidadCaracteres(nombreProducto, 2, 20) && validarPrecio(precio) && validarUrl(imagen) && validarCategoria(categoria)) 
-        if (false)
+        if (cantidadCaracteres(nombre, 2, 30) && cantidadCaracteres(apellido, 2, 20) && validarDni(dni) && validarEmail(email)) 
         {
             setMostrarSuccess(true);
             setTimeout(() => {
@@ -57,19 +56,19 @@ const Formulario = () => {
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formNombre">
                     <Form.Label>Nombre</Form.Label>
-                    <Form.Control type="text" onChange={e=>handleChangeNombre(e.target.value)} />
+                    <Form.Control type="text" onChange={e=>handleChangeNombre(e.target.value)} value={nombre} minLength={2} maxLength={30}/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formApellido">
                     <Form.Label>Apellido</Form.Label>
-                    <Form.Control type="text" onChange={e=>handleChangeApellido(e.target.value)} />
+                    <Form.Control type="text" onChange={e=>handleChangeApellido(e.target.value)} value={apellido} minLength={2} maxLength={20}/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formDNI">
                     <Form.Label>DNI</Form.Label>
-                    <Form.Control type="number" onChange={e=>handleChangeDNI(e.target.value)}/>
+                    <Form.Control type="text" onChange={e=>handleChangeDNI(e.target.value)} value={dni} minLength={7} maxLength={8}/>
                 </Form.Group>
                 <Form.Group className="mb-4" controlId="formEmail">
                     <Form.Label>e-mail</Form.Label>
-                    <Form.Control type="text" onChange={e=>handleChangeEmail(e.target.value)} />
+                    <Form.Control type="text" onChange={e=>handleChangeEmail(e.target.value)} value={email} minLength={5} maxLength={50}/>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Enviar
