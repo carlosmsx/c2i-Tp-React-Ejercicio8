@@ -1,5 +1,5 @@
 # Trabajo Práctico React
-## Lista de empleados
+## Formulario
 
 Ejercicio 8 del trabajo práctico de React para la comision c2i.
 
