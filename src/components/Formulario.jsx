@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Form,Button,Alert} from 'react-bootstrap';
 import { cantidadCaracteres, validarDni, validarEmail } from "./helpers";
-import Swal from "sweetalert2";
+//import Swal from "sweetalert2";
 
 const Formulario = () => {
     const [nombre, setNombre] = useState("");
@@ -36,7 +36,14 @@ const Formulario = () => {
         e.preventDefault();
 
         //validar
-        if (cantidadCaracteres(nombre, 2, 30) && cantidadCaracteres(apellido, 2, 20) && validarDni(dni) && validarEmail(email)) 
+        console.log(cantidadCaracteres(nombre, 2, 30));
+        console.log(cantidadCaracteres(apellido, 2, 20));
+        console.log(validarDni(dni));
+        console.log(validarEmail(email));
+        if (cantidadCaracteres(nombre, 2, 30) 
+            && cantidadCaracteres(apellido, 2, 20) 
+            && cantidadCaracteres(dni,7,8) && validarDni(dni) 
+            && cantidadCaracteres(email,5,30) && validarEmail(email)) 
         {
             setMostrarSuccess(true);
             setTimeout(() => {
@@ -68,7 +75,7 @@ const Formulario = () => {
                 </Form.Group>
                 <Form.Group className="mb-4" controlId="formEmail">
                     <Form.Label>e-mail</Form.Label>
-                    <Form.Control type="text" onChange={e=>handleChangeEmail(e.target.value)} value={email} minLength={5} maxLength={50}/>
+                    <Form.Control type="text" onChange={e=>handleChangeEmail(e.target.value)} value={email} minLength={5} maxLength={30}/>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Enviar
